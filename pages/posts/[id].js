@@ -46,17 +46,18 @@ const EditorContainer = styled.div`
 
 function Editor() {
     const [updateTitle] = useMutation(updatePost);
+    const [currentTitle, setNewTitlte] = useState("");
     const router = useRouter();
-    
-    // const { loading, error, data } = useQuery(getPostById, {
-    //     variables: {
-    //         id: router.query
-    //     },
-    //     onCompleted: (data) => {
-    //         console.log(data.getPostById);
-    //     }
-    // });
 
+    const { loading, error, data } = useQuery(getPostById, {
+        variables: {
+            id: router.query.id
+        },
+        onCompleted: (data) => {
+            setNewTitlte(data.post.title);
+        }
+    });
+    console.log("title", data && data.post ? data.post.title : "")
     return (
         <PanelLayout>
             <Head>
@@ -66,7 +67,14 @@ function Editor() {
             
             <EditorContainer>
                 <div id="editor-container">
-                    <Input id="title" placeholder="Title" onBlur={(e) => {
+                    <Input 
+                    id="title" 
+                    placeholder="Title" 
+                    value={currentTitle}
+                    onChange={(e)=> {
+                        setNewTitlte(e.target.value);
+                    }}
+                    onBlur={(e) => {
                         console.log(router.query.id);
                         updateTitle({
                             variables: {

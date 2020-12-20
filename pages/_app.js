@@ -5,28 +5,18 @@ import { createGlobalStyle } from 'styled-components';
 import {
   ApolloClient,
   InMemoryCache,
-  createHttpLink,
   ApolloProvider,
   split,
   ApolloLink
 } from '@apollo/client';
 import { WebSocketLink } from "@apollo/client/link/ws";
 import { BatchHttpLink } from "@apollo/client/link/batch-http";
-import { SubscriptionClient } from "subscriptions-transport-ws";
-import { HttpLink } from "apollo-link-http";
 import * as ws from 'ws';
 import { getMainDefinition } from 'apollo-utilities';
-// import { WebSocketLink } from '@apollo/client/link/ws';
-// import { WebSocketLink } from 'apollo-link-ws';
-// import ApolloClient from 'apollo-client';
 
-// const link = createHttpLink({
-//   uri: 'http://localhost:8000/pg?',
-//   // credentials: 'same-origin'
-// });
 
 const wsLink = new WebSocketLink({
-  uri: `ws://18.222.170.161:5000/graphql`,
+  uri: `ws://localhost:5000/graphql`,
   options: {
     reconnect: true
   },
@@ -34,7 +24,7 @@ const wsLink = new WebSocketLink({
 });
 
 const httpLink = new BatchHttpLink({
-  uri: "http://18.222.170.161:4000",
+  uri: "http://localhost:4000",
 });
 
 const splitLink = split(
