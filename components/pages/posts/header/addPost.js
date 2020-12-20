@@ -26,12 +26,11 @@ const AddPostButton = styled(Button)`
     }
 `;
 const AddSegment = () => {
-    const [addNewPost, { data }] = useMutation(addPost);
-    
-    if (data !== undefined) {
-        window.location = `/posts/${data.post._id}`
-        // Router.push(`/posts/${data.post._id}`);
-    }
+    const [addNewPost, { data }] = useMutation(addPost, {
+        onCompleted: (data)=> {
+            Router.push(`/posts/${data.post._id}`);
+        }
+    });
 
     return (
         <AddPostButton

@@ -2,11 +2,11 @@ import Head from 'next/head'
 import { PanelLayout } from "@layouts";
 import { Button } from 'antd';
 
-function Funnels() {
+function Authors() {
   return (
     <PanelLayout>
       <Head>
-        <title>Funnels</title>
+        <title>Authors</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
@@ -14,5 +14,4 @@ function Funnels() {
   )
 }
 
-
-export default Funnels;
+export default Authors;

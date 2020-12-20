@@ -134,15 +134,15 @@ const SidebarMenu = () => {
             </a>
           </Link>
         </MenuItem>
-        <MenuItem name="heatmaps">
-          <Link href="/heatmaps" as="/heatmaps">
+        <MenuItem name="categories">
+          <Link href="/categories" as="/categories">
             <a>
               <HeatmapIcon />
             </a>
           </Link>
         </MenuItem>
-        <MenuItem name="funnels">
-          <Link href="/funnels" as="/funnels">
+        <MenuItem name="authors">
+          <Link href="/authors" as="/authors">
             <a>
               <FunnelIcon />
             </a>
