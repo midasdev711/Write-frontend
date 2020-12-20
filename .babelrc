@@ -1,0 +1,27 @@
+{
+    "presets": [
+      "next/babel"
+    ],
+    "plugins": [
+      [
+        "styled-components",
+        {
+          "ssr": true,
+          "displayName": true,
+          "preprocess": false
+        }
+      ],
+      [
+        "module-resolver",
+        {
+          "alias": {
+            "@layouts": "./layouts",
+            "@components": "./components",
+            "@store": "./store",
+            "@actions": "./store/actions",
+            "@graphql": "./graphql"
+          }
+        }
+      ]
+    ]
+  }
