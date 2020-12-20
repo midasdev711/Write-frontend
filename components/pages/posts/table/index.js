@@ -68,14 +68,16 @@ const columns = [
     key: 'actions',
     render: (text, record) => {
       return (
-        <Button onClick={() => {
-          window.location = `/posts/${record._id}`
-        }}
-        type="text">
+        // <Button onClick={() => {
+        //   window.location = `/posts/${record._id}`
+        // }}
+        // type="text">
+        <Link href={`/posts/${record._id}`} as={`/posts/${record._id}`}>
           <a>
             <ActionIcon text={text} />
           </a>
-        </Button>
+        </Link>
+        // </Button>
       )
     }
   }
