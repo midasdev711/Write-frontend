@@ -438,7 +438,7 @@ function Editor({ _id }) {
     //   return;
     // }
 
-    window.addEventListener('load', () => {
+    // window.addEventListener('load', () => {
       const ydoc = new Y.Doc();
       ydoc.on('update', (updateMessage, origin, doc) => {
         // console.log('update', updateMessage, origin, doc)
@@ -481,7 +481,8 @@ function Editor({ _id }) {
             updateThisPost({
                 variables: {
                   id: _id,
-                  content: JSON.stringify(newState.doc.content)
+                  content: JSON.stringify(newState.doc.content),
+                  status: "live"
                 }
             });
           }
@@ -496,7 +497,7 @@ function Editor({ _id }) {
       });
 
       document.getElementById("editor-wrapper").appendChild(editorContainer, null)
-    });
+    // });
   }, []);
 
   return (

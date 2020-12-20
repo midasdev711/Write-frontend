@@ -71,7 +71,8 @@ function Editor() {
                         updateTitle({
                             variables: {
                               id: router.query.id,
-                              title: e.target.value
+                              title: e.target.value,
+                              status: "live"
                             }
                         });
                     }} />
