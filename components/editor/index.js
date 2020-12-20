@@ -437,7 +437,7 @@ function Editor({ _id }) {
     //   console.log("not id")
     //   return;
     // }
-    
+
     window.addEventListener('load', () => {
       const ydoc = new Y.Doc();
       ydoc.on('update', (updateMessage, origin, doc) => {
@@ -445,7 +445,7 @@ function Editor({ _id }) {
         // console.log(doc.toArray);
         // console.log(doc.clientID);
       })
-      const provider = new WebsocketProvider('ws://localhost:1234', _id, ydoc)
+      const provider = new WebsocketProvider('ws://18.222.170.161:1234', _id, ydoc)
       const type = ydoc.getXmlFragment('prosemirror')
 
       const editor = document.createElement('div')
