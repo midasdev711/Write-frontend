@@ -45,7 +45,7 @@ const EditorContainer = styled.div`
 `;
 
 function Editor() {
-    const [updateThisPost] = useMutation(updatePost);
+    const [updateTitle] = useMutation(updatePost);
     const router = useRouter();
     
     // const { loading, error, data } = useQuery(getPostById, {
@@ -67,14 +67,15 @@ function Editor() {
             <EditorContainer>
                 <div id="editor-container">
                     <Input id="title" placeholder="Title" onBlur={(e) => {
-                        updateThisPost({
+                        console.log(router.query.id);
+                        updateTitle({
                             variables: {
-                              _id: router.query.id,
+                              id: router.query.id,
                               title: e.target.value
                             }
                         });
                     }} />
-                    <Editor1 />
+                    <Editor1 _id={router.query.id}/>
                 </div>
             </EditorContainer>
 

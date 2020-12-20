@@ -3,6 +3,7 @@ import EngagementIcon from "./engagement";
 import ActionIcon from "./action";
 import Link from 'next/link'
 import moment from "moment";
+import { Button } from "antd";
 
 const columns = [
   {
@@ -67,11 +68,14 @@ const columns = [
     key: 'actions',
     render: (text, record) => {
       return (
-        <Link href={`/posts/${record._id}`} as={`/posts/${record._id}`}>
+        <Button onClick={() => {
+          window.location = `/posts/${record._id}`
+        }}
+        type="text">
           <a>
             <ActionIcon text={text} />
           </a>
-        </Link>
+        </Button>
       )
     }
   }

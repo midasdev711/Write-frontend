@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as Y from 'yjs'
 import { WebsocketProvider } from 'y-websocket'
 import {
@@ -429,9 +429,15 @@ const Container = styled.div`
 `;
 
 function Editor({ _id }) {
+  const [editorContent, setEditorContent] = useState("");
   const [updateThisPost] = useMutation(updatePost);
 
   useEffect(() => {
+    // if (!_id) {
+    //   console.log("not id")
+    //   return;
+    // }
+    
     window.addEventListener('load', () => {
       const ydoc = new Y.Doc();
       ydoc.on('update', (updateMessage, origin, doc) => {
@@ -439,7 +445,7 @@ function Editor({ _id }) {
         // console.log(doc.toArray);
         // console.log(doc.clientID);
       })
-      const provider = new WebsocketProvider('ws://demos.yjs.dev', 'prosemirror-demo', ydoc)
+      const provider = new WebsocketProvider('ws://localhost:1234', _id, ydoc)
       const type = ydoc.getXmlFragment('prosemirror')
 
       const editor = document.createElement('div')
@@ -461,18 +467,24 @@ function Editor({ _id }) {
             }),
           ].concat(exampleSetup({ schema }))
         }),
+        handleKeyDown: (view, event) => {
+          console.log(editorContent);
+        }, 
         dispatchTransaction: transaction => {
           let newState = prosemirrorView.state.apply(transaction);
+          // setEditorContent(JSON.stringify(newState.doc.content));
           prosemirrorView.updateState(newState);
+          // console.log(JSON.stringify(newState.doc.content));
           // console.log(newState);
-          // console.log("doc", newState.doc.content);
-
-          updateThisPost({
-              variables: {
-                _id,
-                content: JSON.stringify(newState.doc.content)
-              }
-          });
+          console.log(_id);
+          if (_id) {
+            updateThisPost({
+                variables: {
+                  id: _id,
+                  content: JSON.stringify(newState.doc.content)
+                }
+            });
+          }
           // const doc = prosemirrorJSONToYDoc(schema, {
           //     type: "doc",
           //     content: newState.doc.content.content
