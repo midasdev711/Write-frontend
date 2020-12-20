@@ -16,7 +16,7 @@ import { getMainDefinition } from 'apollo-utilities';
 
 
 const wsLink = new WebSocketLink({
-  uri: `ws://localhost:5000/graphql`,
+  uri: `ws://18.222.170.161:5000/graphql`,
   options: {
     reconnect: true
   },
@@ -24,7 +24,7 @@ const wsLink = new WebSocketLink({
 });
 
 const httpLink = new BatchHttpLink({
-  uri: "http://localhost:4000",
+  uri: "http://18.222.170.161:4000",
 });
 
 const splitLink = split(
