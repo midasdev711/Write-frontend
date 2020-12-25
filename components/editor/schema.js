@@ -131,7 +131,9 @@ export const nodes = {
   }
 }
 
-const emDOM = ['em', 0]; const strongDOM = ['strong', 0]; const codeDOM = ['code', 0]
+const emDOM = ['em', 0];
+const strongDOM = ['strong', 0];
+const codeDOM = ['code', 0]
 
 // :: Object [Specs](#model.MarkSpec) for the marks in the schema.
 export const marks = {
@@ -170,6 +172,11 @@ export const marks = {
       { tag: 'b', getAttrs: node => node.style.fontWeight !== 'normal' && null },
       { style: 'font-weight', getAttrs: value => /^(bold(er)?|[5-9]\d{2,})$/.test(value) && null }],
     toDOM () { return strongDOM }
+  },
+
+  title: {
+    parseDOM: [{tag: "h1"}],
+    toDOM() { return ["h1", 0] },
   },
 
   // :: MarkSpec Code font mark. Represented as a `<code>` element.

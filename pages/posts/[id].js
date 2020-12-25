@@ -57,33 +57,36 @@ function Editor() {
             setNewTitlte(data.post.title);
         }
     });
+
     console.log("title", data && data.post ? data.post.title : "")
+
     return (
         <PanelLayout>
             <Head>
                 <title>Editor</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            
+
             <EditorContainer>
                 <div id="editor-container">
-                    <Input 
-                    id="title" 
-                    placeholder="Title" 
-                    value={currentTitle}
-                    onChange={(e)=> {
-                        setNewTitlte(e.target.value);
-                    }}
-                    onBlur={(e) => {
-                        console.log(router.query.id);
-                        updateTitle({
-                            variables: {
-                              id: router.query.id,
-                              title: e.target.value,
-                              status: "live"
-                            }
-                        });
-                    }} />
+                    <Input
+                        id="title"
+                        placeholder="Title"
+                        value={currentTitle}
+                        onChange={(e)=> {
+                            setNewTitlte(e.target.value);
+                        }}
+                        onBlur={(e) => {
+                            console.log(router.query.id);
+                            updateTitle({
+                                variables: {
+                                  id: router.query.id,
+                                  title: e.target.value,
+                                  status: "live"
+                                }
+                            });
+                        }}
+                    />
                     <Editor1 _id={router.query.id}/>
                 </div>
             </EditorContainer>

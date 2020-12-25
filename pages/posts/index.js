@@ -65,7 +65,7 @@ function Posts({}) {
 
     return () => {
       Router.events.off('routeChangeStart', doMagic); // remove listener
-    } 
+    }
   }, []);
 
   const { loading, error, data, fetchMore } = useQuery(getAllPost, {
