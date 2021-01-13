@@ -7,7 +7,9 @@ function Overview() {
     <PanelLayout>
       <Head>
         <title>Overview</title>
+        <Head />
         <link rel="icon" href="/favicon.ico" />
+
       </Head>
       
     </PanelLayout>

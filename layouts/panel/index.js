@@ -20,6 +20,10 @@ const Container = styled.div`
     padding: 0;
   }
 `;
+
+const StyledLayout = styled(Layout)`
+  margin: 25px;
+`;
 export default function PanelLayout({ children, header, footer }) {
   return (
     <Container>
@@ -27,7 +31,7 @@ export default function PanelLayout({ children, header, footer }) {
         <SidebarMenu />
       </Sidebar>
 
-      <Layout>
+      <StyledLayout>
         <Header id="header">
           {header}
         </Header>
@@ -39,7 +43,7 @@ export default function PanelLayout({ children, header, footer }) {
         <Footer id="footer">
           {footer}
         </Footer>
-      </Layout>
+      </StyledLayout>
 
       <Sidebar />
     </Container>
