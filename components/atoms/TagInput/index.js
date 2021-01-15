@@ -33,10 +33,12 @@ const NewTag = styled(Tag)`
     color: ${ColorSchema.light.dark1};
     padding-left: 10px;
     padding-right: 10px;
+    margin-bottom: 5px;
 `
 
 const TagContainer = styled.div`
     display: flex;
+    flex-wrap: wrap;
 `
 
 const TagInput = (props) => {

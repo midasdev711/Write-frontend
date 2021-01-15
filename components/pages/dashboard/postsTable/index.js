@@ -24,7 +24,7 @@ const Toolbar = styled.div`
     background: #fff;
     width: 100%;
     border-radius: 10px 10px 0 0;
-    height: 48px;
+    min-height: 48px;
     padding-top: 5px;
     box-shadow: inset 0px -1px 0px #F0EFE9;
     padding-left: 16px;
