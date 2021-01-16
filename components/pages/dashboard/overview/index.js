@@ -40,9 +40,11 @@ const NewTabs = styled(Tabs)`
         margin-bottom: 0;
         .ant-tabs-nav-list {
             width: 100%;
+            // border-bottom: 1px solid #fff;
             .ant-tabs-tab {
                 padding: 0 9% 0 0;
                 margin: 0;
+                margin-bottom: -1px;
                 box-shadow: inset -1px -1px 0px rgba(198, 209, 221, 0.5);
                 .tab-label__first, .tab-label__second {
                     color: rgba(20, 16, 0, 0.4);
@@ -50,7 +52,9 @@ const NewTabs = styled(Tabs)`
             }
     
             .ant-tabs-tab-active {
-                box-shadow: 1px 0px 1px rgba(198, 209, 221, 0.5);
+                background: white;
+                border-right: 1px solid rgba(198,209,221,0.5);
+                box-shadow: none!important;
                 .tab-label__first, .tab-label__second {
                     color: #141000;
                 }
