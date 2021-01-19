@@ -7,6 +7,7 @@ import { ColorSchema } from "@/config";
 
 const InputTag = styled(Tag)`
     width: 41px;
+    min-width: 41px!important;
     height: 35px;
     border: 1px dashed rgba(20, 16, 0, 0.8);
     border-radius: 5px;
@@ -38,7 +39,8 @@ const NewTag = styled(Tag)`
 
 const TagContainer = styled.div`
     display: flex;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    // flex-wrap: wrap;
 `
 
 const TagInput = (props) => {

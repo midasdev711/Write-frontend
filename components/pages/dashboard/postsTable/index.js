@@ -33,6 +33,7 @@ const Toolbar = styled.div`
 
     .tags-block {
         flex: 1 1 auto;
+        min-width: 1px;
     }
 `;
 
@@ -117,7 +118,7 @@ const PostsTable = ({ title, fetchMore }) => {
                 <div className="tags-block">
                     <TagInput />
                 </div>
-                <Dropdown data={["Today", "Yesterday"]} style={{ marginLeft: "10px", float: "right" }}/>
+                <Dropdown data={["Today", "Yesterday"]} style={{ marginLeft: "10px" }}/>
             </Toolbar>
             <AdvancedTable columns={columns} dataSource={data} pagination={ false } />
         </Container>

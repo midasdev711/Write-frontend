@@ -23,6 +23,7 @@ const Container = styled.div`
 
 const StyledLayout = styled(Layout)`
   margin: 25px;
+  width: calc(100vw - 200px);
 `;
 export default function PanelLayout({ children, header, footer }) {
   return (
